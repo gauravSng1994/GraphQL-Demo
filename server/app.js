@@ -2,7 +2,7 @@ const express = require('express');
 const graphQlHTTP = require('express-graphql');
 const graphQLSchema = require('./schema/schema');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/graphqldemo');
+mongoose.connect('mongodb://localhost:27017/graphqldemo',{useNewUrlParser:true,useUnifiedTopology:true});
 mongoose.connection.once('open',()=> console.log('mongo connected...'));
 const app = express();
 app.use('/graphql',graphQlHTTP({
